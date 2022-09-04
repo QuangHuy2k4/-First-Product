@@ -1,0 +1,137 @@
+$text-button:#579aff;
+$text-gray: #272e35;
+$text-color:#868d93;
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: $text-color;
+  line-height: 1.4;
+  font-weight: 400;
+}
+@mixin flex(
+  $align: flex-start,
+  $justify: flex-start,
+  $wrap: nowrap,
+  $dir: row
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $dir;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+// 1440px, 1170
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1210px;
+   padding: 0 1.5rem;
+}
+.btn{
+  border-radius: 1rem;
+  display: inline-block;
+  padding: 2rem 4.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color:transparent;
+  outline: none;
+  line-height: normal;
+  &--primary{
+    color: white;
+    background-color:$text-button;
+  }
+  &--border{
+     border: 1px solid ;
+     color: $text-color;
+  }
+}
+.text{
+  font-weight: 300;
+    color: #868d93;
+    line-height: 1.6;
+}
+.block{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  &__caption{
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    position: relative;
+    display: inline-block;
+    padding: 0 1rem;
+    color: $text-gray;
+    &:after ,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      height: 3px;
+      width: 2rem;
+      background-color: $text-button;
+   }
+   &--left{
+    margin-left: 2rem;
+    margin-bottom: 4rem;
+   }
+   &--left:after{
+    display: none;
+   }
+   &--left:before{
+    transform: none;
+   }
+   &::before{
+       left: 0;
+       transform: translateX(-100%) translateY(-50%);
+   }
+   &:after{
+       right: 0;
+       transform: translateX(100%) translateY(-50%);
+   }
+}
+}
+
+@media screen and (max-width: 767px) {
+  .btn{
+     padding: 1.5rem 2rem;
+  }
+  .block{
+    margin-bottom: 5rem;
+    &__caption{
+      margin-bottom: 2rem;
+    }
+    &__heading{
+      font-size: 3.5rem;
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .btn{
+     padding: 1.5rem 3rem;
+  }
+}

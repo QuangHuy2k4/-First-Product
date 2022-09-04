@@ -1,0 +1,83 @@
+.header{
+    padding-top: 5rem;
+    @include flex(center,center);
+    &__menu{
+        
+         display: flex;
+         align-items: center;
+         font-size: 1.5rem;
+         color: $text-gray;
+         transition: all 0.25s linear;
+         &--link:hover{
+             color: $text-button;
+         }
+        }
+    
+        &__logo{
+        margin-right: 13rem;
+    }
+    &__auth{
+        color: $text-gray;
+        font-size: 1.5rem;
+        margin: 0 auto;
+    }
+    
+    @media screen and (min-width: 1024px) {
+        &__menu{
+            &--item:not(:first-child){
+                margin-left: 7.5rem;
+            }
+        }  
+         .menu-toggle{
+            display: none;
+        }
+        }
+        
+
+        @media screen and (max-width: 1023px) {
+            &__menu{
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 90%;
+                max-width: 30rem;
+                background-color: white;
+                z-index: 9999;
+                display: block;
+                border-left: 1px solid #eee;
+                padding: 5rem 2.5rem;
+                transition: transform 0.25s linear;
+                transform: translateX(100%);
+                &__menu.is-active{
+                transform: translateX(0);
+            }
+            &--link{
+                display: block;
+                padding: 2rem;
+                border-radius:6px;
+                &:hover{
+                    color: white;
+                    background-color: $text-button;
+                }
+            }
+        }
+        &__auth{
+            margin: 0 auto;
+        }
+        
+    }
+    @media screen and (max-width: 767px) {
+        padding-top: 2rem;
+        &__logo{
+            max-width: 9rem;
+            margin-right: 0;
+        }
+        
+    }
+}
+.menu__toggle{
+    font-size: 2rem;
+    margin-left: 1rem;
+    color: $text-button;
+}

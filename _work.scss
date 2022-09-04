@@ -1,0 +1,97 @@
+.work{
+    padding-top: 10rem;
+    margin-bottom: 10rem;
+   &__list{
+    padding-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7rem;
+   }
+   &__item{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 4.5rem 5rem;
+      border-radius: 1rem;
+      border: 1px solid #f4f4f4;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .work__more{
+        transition: all 0.25s linear;
+    }
+    &__item:hover{
+        border-color: transparent;
+        box-shadow: 0 0 50px 10px rgba(black ,0.09);
+    }
+    &__item:hover .work__more{
+        color: white;
+        background-color: $text-button;
+    }
+
+    &__title{
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: $text-gray;
+        margin-bottom: 2.5rem;
+    }
+    &__iamge{
+     object-fit: cover;
+     max-height: 13.5rem;
+     margin-bottom: 2.5rem;
+    }
+    &__desc{
+        margin-bottom: 2.5rem;
+    }
+    @media screen and (max-width: 1023px) {
+             &__list{
+                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            &__item{
+                width: 100%;
+                margin-bottom: 2.5rem;
+                max-width: 30rem;
+            }
+    }
+    @media screen and (max-width: 767px) {
+        &__list{
+            display: grid;
+            justify-content: flex-start;
+            grid-auto-columns: 40rem;
+            grid-auto-flow: column;
+            grid-gap: 0 5rem;
+            overflow: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            -webkit-overflow-scrolling: touch;
+            grid-template-columns: unset;
+             &::-webkit-scrollbar {
+              display: none;
+              width: 0;
+            }
+             & > *{
+              scroll-snap-align: start;
+              width: 100%;
+            }
+        }
+    }
+    
+}
+.block{
+  
+    &__heading{
+        font-size: 4.5rem;
+        font-weight: 600;
+        color: $text-gray;
+        span{
+            display: block;
+        }
+    }
+}
